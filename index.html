@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Clothing Sales Dashboard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="dashboard">
+    <aside class="sidebar" aria-label="Dashboard navigation">
+      <div class="brand">
+        <span class="brand-mark">C</span>
+        <div>
+          <strong>ClothCo</strong>
+          <small>Sales Studio</small>
+        </div>
+      </div>
+
+      <nav>
+        <a class="active" href="#">Overview</a>
+        <a href="#">Products</a>
+        <a href="#">Orders</a>
+        <a href="#">Customers</a>
+        <a href="#">Reports</a>
+      </nav>
+    </aside>
+
+    <main class="main-content">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">Retail dashboard</p>
+          <h1>Clothing Sales Overview</h1>
+        </div>
+        <div class="filters">
+          <select id="seasonFilter" aria-label="Select sales season">
+            <option value="spring">Spring 2026</option>
+            <option value="summer">Summer 2026</option>
+            <option value="winter">Winter 2025</option>
+          </select>
+          <button type="button" id="refreshButton">Refresh</button>
+        </div>
+      </header>
+
+      <section class="kpi-grid" aria-label="Key sales metrics">
+        <article class="kpi-card">
+          <span>Total Revenue</span>
+          <strong id="revenueMetric">$0</strong>
+          <small id="revenueTrend">+0% vs last season</small>
+        </article>
+        <article class="kpi-card">
+          <span>Orders</span>
+          <strong id="ordersMetric">0</strong>
+          <small id="ordersTrend">+0% vs last season</small>
+        </article>
+        <article class="kpi-card">
+          <span>Items Sold</span>
+          <strong id="itemsMetric">0</strong>
+          <small id="itemsTrend">+0% vs last season</small>
+        </article>
+        <article class="kpi-card">
+          <span>Avg. Order</span>
+          <strong id="averageMetric">$0</strong>
+          <small id="averageTrend">+0% vs last season</small>
+        </article>
+      </section>
+
+      <section class="dashboard-grid">
+        <article class="panel revenue-panel">
+          <div class="panel-heading">
+            <div>
+              <h2>Monthly Revenue</h2>
+              <p>Revenue across online and store sales.</p>
+            </div>
+            <span id="bestMonthBadge">Best: -</span>
+          </div>
+          <canvas id="revenueChart" height="260" aria-label="Monthly revenue chart"></canvas>
+        </article>
+
+        <article class="panel">
+          <div class="panel-heading">
+            <div>
+              <h2>Category Sales</h2>
+              <p>Top clothing categories by revenue.</p>
+            </div>
+          </div>
+          <div class="category-list" id="categoryList"></div>
+        </article>
+
+        <article class="panel">
+          <div class="panel-heading">
+            <div>
+              <h2>Regional Split</h2>
+              <p>Where customers are buying.</p>
+            </div>
+          </div>
+          <div class="region-list" id="regionList"></div>
+        </article>
+
+        <article class="panel orders-panel">
+          <div class="panel-heading">
+            <div>
+              <h2>Recent Orders</h2>
+              <p>Latest high-value clothing purchases.</p>
+            </div>
+          </div>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Order</th>
+                  <th>Customer</th>
+                  <th>Category</th>
+                  <th>Status</th>
+                  <th>Total</th>
+                </tr>
+              </thead>
+              <tbody id="ordersTable"></tbody>
+            </table>
+          </div>
+        </article>
+      </section>
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
