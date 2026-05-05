@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Retro Snake Game</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="snake.css">
+</head>
+<body>
+  <main class="game-shell">
+    <section class="side-panel" aria-label="Snake game controls">
+      <div>
+        <p class="eyebrow">Retro Arcade</p>
+        <h1>Snake</h1>
+        <p class="summary">Eat the glowing fruit, grow longer, and keep away from the walls and your own tail.</p>
+      </div>
+
+      <div class="stats-grid">
+        <article>
+          <span>Score</span>
+          <strong id="scoreText">0</strong>
+        </article>
+        <article>
+          <span>Best</span>
+          <strong id="bestText">0</strong>
+        </article>
+        <article>
+          <span>Speed</span>
+          <strong id="speedText">1x</strong>
+        </article>
+      </div>
+
+      <div class="actions">
+        <button type="button" id="startButton">Start</button>
+        <button type="button" id="pauseButton">Pause</button>
+        <button type="button" id="resetButton">Reset</button>
+      </div>
+
+      <div class="mode-panel">
+        <label>
+          Speed level
+          <input id="speedSlider" type="range" min="1" max="5" value="1">
+        </label>
+        <p id="statusText" aria-live="polite">Press Start or use arrow keys.</p>
+      </div>
+    </section>
+
+    <section class="play-area" aria-label="Snake game board">
+      <canvas id="gameCanvas" width="560" height="560"></canvas>
+      <div class="touch-pad" aria-label="Touch controls">
+        <button type="button" data-direction="up" aria-label="Move up">▲</button>
+        <button type="button" data-direction="left" aria-label="Move left">◀</button>
+        <button type="button" data-direction="down" aria-label="Move down">▼</button>
+        <button type="button" data-direction="right" aria-label="Move right">▶</button>
+      </div>
+    </section>
+  </main>
+
+  <script src="snake.js"></script>
+</body>
+</html>
