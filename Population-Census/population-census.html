@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Population Census Visualization</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="population-census.css">
+</head>
+<body>
+  <main class="dashboard">
+    <header class="hero">
+      <div>
+        <p class="eyebrow">Interactive Census</p>
+        <h1>Population Insights</h1>
+        <p class="summary">Explore population, growth, density, age groups, and urban share across regions.</p>
+      </div>
+
+      <div class="controls" aria-label="Visualization controls">
+        <label>
+          Region
+          <select id="regionSelect">
+            <option value="all">All regions</option>
+            <option value="north">North</option>
+            <option value="south">South</option>
+            <option value="east">East</option>
+            <option value="west">West</option>
+            <option value="central">Central</option>
+          </select>
+        </label>
+
+        <label>
+          Year
+          <input id="yearSlider" type="range" min="2000" max="2025" value="2025" step="5">
+          <span id="yearValue">2025</span>
+        </label>
+      </div>
+    </header>
+
+    <section class="kpi-grid" aria-label="Census summary">
+      <article class="kpi-card">
+        <span>Total Population</span>
+        <strong id="populationMetric">0</strong>
+        <small id="growthMetric">0% growth</small>
+      </article>
+      <article class="kpi-card">
+        <span>Urban Share</span>
+        <strong id="urbanMetric">0%</strong>
+        <small>people living in cities</small>
+      </article>
+      <article class="kpi-card">
+        <span>Median Age</span>
+        <strong id="ageMetric">0</strong>
+        <small>years old</small>
+      </article>
+      <article class="kpi-card">
+        <span>Density</span>
+        <strong id="densityMetric">0</strong>
+        <small>people per sq km</small>
+      </article>
+    </section>
+
+    <section class="visual-grid">
+      <article class="panel trend-panel">
+        <div class="panel-heading">
+          <div>
+            <h2>Population Trend</h2>
+            <p>Five-year census readings by selected region.</p>
+          </div>
+          <button type="button" id="animateButton">Animate years</button>
+        </div>
+        <canvas id="trendChart" height="280" aria-label="Population trend chart"></canvas>
+      </article>
+
+      <article class="panel">
+        <div class="panel-heading">
+          <div>
+            <h2>Age Distribution</h2>
+            <p>Share of residents by age group.</p>
+          </div>
+        </div>
+        <div class="age-list" id="ageList"></div>
+      </article>
+
+      <article class="panel">
+        <div class="panel-heading">
+          <div>
+            <h2>Regional Population</h2>
+            <p>Compare region sizes for the selected year.</p>
+          </div>
+        </div>
+        <div class="region-map" id="regionMap"></div>
+      </article>
+
+      <article class="panel">
+        <div class="panel-heading">
+          <div>
+            <h2>Region Details</h2>
+            <p>Click a region to focus the dashboard.</p>
+          </div>
+        </div>
+        <div class="detail-list" id="detailList"></div>
+      </article>
+    </section>
+  </main>
+
+  <script src="population-census.js"></script>
+</body>
+</html>
