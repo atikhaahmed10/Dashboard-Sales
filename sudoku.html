@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>3D Sudoku Generator</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="sudoku.css">
+</head>
+<body>
+  <main class="app-shell">
+    <section class="control-panel" aria-label="Sudoku controls">
+      <div>
+        <p class="eyebrow">Puzzle Lab</p>
+        <h1>3D Sudoku</h1>
+        <p class="summary">Generate a fresh puzzle, pick a level, and solve on a tactile board built for focus.</p>
+      </div>
+
+      <div class="difficulty-group" role="group" aria-label="Choose difficulty">
+        <button class="difficulty-button active" type="button" data-level="basic">
+          <span>Basic</span>
+          <small>42 clues</small>
+        </button>
+        <button class="difficulty-button" type="button" data-level="intermediate">
+          <span>Intermediate</span>
+          <small>34 clues</small>
+        </button>
+        <button class="difficulty-button" type="button" data-level="advanced">
+          <span>Advanced</span>
+          <small>27 clues</small>
+        </button>
+      </div>
+
+      <div class="actions">
+        <button class="primary-action" type="button" id="newPuzzleButton">New puzzle</button>
+        <button class="secondary-action" type="button" id="checkButton">Check</button>
+        <button class="secondary-action" type="button" id="solveButton">Solve</button>
+      </div>
+
+      <div class="status-strip" aria-live="polite">
+        <div>
+          <span class="label">Level</span>
+          <strong id="levelText">Basic</strong>
+        </div>
+        <div>
+          <span class="label">Filled</span>
+          <strong id="filledText">0 / 81</strong>
+        </div>
+      </div>
+    </section>
+
+    <section class="board-stage" aria-label="Sudoku board">
+      <div class="board-perspective">
+        <div class="sudoku-board" id="sudokuBoard"></div>
+      </div>
+      <div class="number-pad" id="numberPad" aria-label="Number pad"></div>
+    </section>
+  </main>
+
+  <script src="sudoku.js"></script>
+</body>
+</html>

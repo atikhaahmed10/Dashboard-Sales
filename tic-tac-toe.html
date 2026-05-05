@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pink Teal Tic Tac Toe</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="tic-tac-toe.css">
+</head>
+<body>
+  <main class="game-shell">
+    <section class="game-panel" aria-labelledby="gameTitle">
+      <p class="eyebrow">Classic Match</p>
+      <h1 id="gameTitle">Tic Tac Toe</h1>
+      <p class="status" id="statusText" aria-live="polite">Player X goes first</p>
+
+      <div class="scoreboard" aria-label="Scoreboard">
+        <div>
+          <span>Player X</span>
+          <strong id="scoreX">0</strong>
+        </div>
+        <div>
+          <span>Draws</span>
+          <strong id="scoreDraw">0</strong>
+        </div>
+        <div>
+          <span>Player O</span>
+          <strong id="scoreO">0</strong>
+        </div>
+      </div>
+
+      <div class="actions">
+        <button type="button" id="newRoundButton">New round</button>
+        <button type="button" id="resetScoreButton">Reset score</button>
+      </div>
+    </section>
+
+    <section class="board-wrap" aria-label="Tic Tac Toe board">
+      <div class="board" id="board">
+        <button class="cell" type="button" aria-label="Cell 1"></button>
+        <button class="cell" type="button" aria-label="Cell 2"></button>
+        <button class="cell" type="button" aria-label="Cell 3"></button>
+        <button class="cell" type="button" aria-label="Cell 4"></button>
+        <button class="cell" type="button" aria-label="Cell 5"></button>
+        <button class="cell" type="button" aria-label="Cell 6"></button>
+        <button class="cell" type="button" aria-label="Cell 7"></button>
+        <button class="cell" type="button" aria-label="Cell 8"></button>
+        <button class="cell" type="button" aria-label="Cell 9"></button>
+      </div>
+    </section>
+  </main>
+
+  <script src="tic-tac-toe.js"></script>
+</body>
+</html>

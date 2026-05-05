@@ -1,0 +1,227 @@
+:root {
+  --pink-bg: #ffd6e8;
+  --pink-soft: #fff0f7;
+  --pink-card: rgba(255, 246, 250, 0.86);
+  --teal: #008f8c;
+  --teal-dark: #005f63;
+  --ink: #273044;
+  --muted: #6f7585;
+  --white: #ffffff;
+  --shadow: 0 28px 60px rgba(0, 95, 99, 0.22);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  color: var(--ink);
+  background:
+    radial-gradient(circle at 18% 18%, rgba(0, 143, 140, 0.24), transparent 24%),
+    radial-gradient(circle at 84% 78%, rgba(255, 255, 255, 0.72), transparent 28%),
+    linear-gradient(135deg, var(--pink-bg), #ffc0dc 58%, #f8d9e8);
+}
+
+button {
+  font: inherit;
+}
+
+.game-shell {
+  width: min(1040px, calc(100% - 32px));
+  min-height: 100vh;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: minmax(280px, 360px) 1fr;
+  gap: clamp(28px, 5vw, 70px);
+  align-items: center;
+  padding: 36px 0;
+}
+
+.game-panel {
+  display: grid;
+  gap: 22px;
+}
+
+.eyebrow {
+  margin: 0;
+  color: var(--teal-dark);
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+h1 {
+  margin: 0;
+  color: var(--teal-dark);
+  font-size: clamp(3.2rem, 9vw, 6.4rem);
+  line-height: 0.9;
+  letter-spacing: 0;
+}
+
+.status {
+  min-height: 64px;
+  margin: 0;
+  display: grid;
+  place-items: center start;
+  padding: 16px 18px;
+  border: 2px solid rgba(0, 143, 140, 0.18);
+  border-radius: 8px;
+  color: var(--teal-dark);
+  background: var(--pink-card);
+  font-size: 1.15rem;
+  font-weight: 800;
+  box-shadow: 0 16px 34px rgba(255, 105, 165, 0.12);
+}
+
+.scoreboard {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+.scoreboard div {
+  min-height: 88px;
+  padding: 14px 10px;
+  border: 2px solid rgba(0, 143, 140, 0.16);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.58);
+  text-align: center;
+}
+
+.scoreboard span {
+  display: block;
+  color: var(--muted);
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.scoreboard strong {
+  display: block;
+  margin-top: 6px;
+  color: var(--teal-dark);
+  font-size: 2rem;
+  line-height: 1;
+}
+
+.actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.actions button {
+  min-height: 48px;
+  border: 0;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 800;
+  transition: transform 160ms ease, box-shadow 160ms ease, background 160ms ease;
+}
+
+#newRoundButton {
+  color: var(--white);
+  background: var(--teal);
+  box-shadow: 0 14px 28px rgba(0, 95, 99, 0.24);
+}
+
+#resetScoreButton {
+  color: var(--teal-dark);
+  background: var(--pink-soft);
+  border: 2px solid rgba(0, 143, 140, 0.18);
+}
+
+button:hover {
+  transform: translateY(-2px);
+}
+
+button:active {
+  transform: translateY(1px);
+}
+
+.board-wrap {
+  display: grid;
+  place-items: center;
+}
+
+.board {
+  width: min(88vw, 520px);
+  aspect-ratio: 1;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(10px, 2.4vw, 18px);
+  padding: clamp(14px, 3vw, 24px);
+  border: 3px solid rgba(0, 95, 99, 0.2);
+  border-radius: 8px;
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.6), rgba(255, 240, 247, 0.38)), var(--pink-card);
+  box-shadow: var(--shadow);
+}
+
+.cell {
+  display: grid;
+  place-items: center;
+  border: 3px solid rgba(0, 143, 140, 0.28);
+  border-radius: 8px;
+  color: var(--teal-dark);
+  background: var(--white);
+  cursor: pointer;
+  font-size: clamp(3.2rem, 15vw, 7rem);
+  font-weight: 800;
+  line-height: 1;
+  box-shadow: inset 0 -8px 0 rgba(0, 143, 140, 0.06), 0 12px 24px rgba(0, 95, 99, 0.12);
+  transition: transform 160ms ease, background 160ms ease, border-color 160ms ease;
+}
+
+.cell:hover:not(:disabled) {
+  background: #ecfffc;
+  border-color: var(--teal);
+}
+
+.cell.x {
+  color: var(--teal-dark);
+}
+
+.cell.o {
+  color: #d93684;
+}
+
+.cell.win {
+  color: var(--white);
+  background: var(--teal);
+  border-color: var(--teal-dark);
+  box-shadow: 0 18px 34px rgba(0, 95, 99, 0.28);
+}
+
+.cell:disabled {
+  cursor: default;
+}
+
+@media (max-width: 760px) {
+  .game-shell {
+    grid-template-columns: 1fr;
+    align-items: start;
+    padding-top: 28px;
+  }
+
+  .game-panel {
+    gap: 16px;
+  }
+}
+
+@media (max-width: 440px) {
+  .game-shell {
+    width: min(100% - 20px, 1040px);
+  }
+
+  .scoreboard,
+  .actions {
+    grid-template-columns: 1fr;
+  }
+
+  .status {
+    font-size: 1rem;
+  }
+}
